@@ -22,7 +22,7 @@ const LoginPage = () => {
     }
     const regex = /^[a-zA-Z0-9_]{3,16}$/;
     if (!regex.test(value)) {
-      return "Username harf va raqam yoki '_' bo‘lishi kerak (3-16 ta belgi)";
+      return "Username harf va raqam bo‘lishi kerak (3-16 ta belgi)";
     }
     return "";
   };
@@ -59,7 +59,8 @@ const LoginPage = () => {
   return (
     <div className="bg-[#F3F4F6]">
       <div className="h-screen flex items-center justify-center sm:mx-auto mx-4">
-        <div className="bg-white shadow-lg rounded-xl p-6 w-full max-w-sm flex flex-col">
+        <div className="btn-gradient w-full max-w-sm p-1 rounded-xl">
+          <div className="bg-white shadow-lg rounded-xl p-6 w-full flex flex-col">
           <h2 className="text-2xl font-semibold text-center mb-4">Login</h2>
 
           {/* Username */}
@@ -67,10 +68,11 @@ const LoginPage = () => {
             type="text"
             placeholder="Username"
             value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            onBlur={() => {
-              setTouched((prev) => ({ ...prev, username: true }));
-              setUsernameError(validateUsername(username));
+            onChange={(e) => {
+              const val = e.target.value;
+              setUsername(val);
+              setUsernameError(validateUsername(val)); // har yozishda tekshiradi
+              setTouched((prev) => ({ ...prev, username: true })); // yozilganda touched = true
             }}
             className={`border-2 outline-none px-4 py-3 my-2 rounded-lg ${
               usernameError && touched.username
@@ -85,7 +87,11 @@ const LoginPage = () => {
           {/* Phone */}
           <PhoneInput
             value={phone}
-            onChange={setPhone}
+            onChange={(val) => {
+              setPhone(val);
+              setPhoneError(validatePhone(val)); // har yozishda tekshiradi
+              setTouched((prev) => ({ ...prev, phone: true })); // yozilganda touched = true
+            }}
             onFocus={() => {
               if (!phone) {
                 setPhone("+998");
@@ -110,15 +116,13 @@ const LoginPage = () => {
           {/* Button */}
           <button
             onClick={handleContinue}
-            disabled={!!usernameError || !!phoneError || !username || !phone}
-            className={`w-full mt-5 text-white py-2 rounded-lg font-semibold transition cursor-pointer ${
-              !!usernameError || !!phoneError || !username || !phone
-                ? "bg-gray-400 cursor-not-allowed"
-                : "bg-gradient-to-r from-green-400 to-green-600 hover:from-green-500 hover:to-green-700"
-            }`}
+            className={`w-full mt-5 text-white py-2 rounded-lg font-semibold transition cursor-pointer
+                bg-gradient-to-r from-green-400 to-green-600 hover:from-green-500 hover:to-green-700
+            `}
           >
             Continue
           </button>
+        </div>
         </div>
       </div>
     </div>
