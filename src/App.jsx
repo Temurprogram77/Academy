@@ -5,15 +5,19 @@ import Dashboard from "./pages/Dashboard";
 import NotFound from "./pages/NotFound";
 import LandingPage from "./pages/LandingPage";
 import User from "./pages/User";
+import AdminPanel from "./pages/AdminPanel";
+import TeacherPanel from "./pages/TeacherPanel";
 
 const App = () => {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="/landing" element={<Dashboard />}/>
+        <Route path="/landing" element={<Dashboard />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/user" element={<User />} />
+        <Route path="/admin" element={<AdminPanel />} />
+        <Route path="/teacher" element={<TeacherPanel />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
