@@ -7,6 +7,7 @@ import LandingPage from "./pages/LandingPage";
 import User from "./pages/User";
 import AdminPanel from "./pages/AdminPanel";
 import TeacherPanel from "./pages/TeacherPanel";
+import LandingTeacher from "./pages/LandingTeacher";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
         <Route path="/user" element={<User />} />
         <Route path="/admin" element={<AdminPanel />} />
         <Route path="/teacher" element={<TeacherPanel />} />
+        <Route path="/team/:id" element={<LandingTeacher />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
