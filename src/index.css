@@ -1,4 +1,7 @@
 @import "tailwindcss";
-.containerr{
+.containerr {
   @apply max-w-[1200px] mx-auto;
+}
+.btn-gradient {
+  @apply bg-gradient-to-r from-[#2ab200] to-[#208a00];
 }

@@ -1,4 +1,4 @@
-import logo from "./icons/logo.svg";
+import logo from "./icons/logo.png";
 import main from "./images/main.png";
 
 const dataImages = {
