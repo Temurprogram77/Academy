@@ -22,7 +22,7 @@ const LoginPage = () => {
     }
     const regex = /^[a-zA-Z0-9_]{3,16}$/;
     if (!regex.test(value)) {
-      return "Username faqat harf, raqam yoki '_' bo‘lishi kerak (3-16 ta belgi)";
+      return "Username harf va raqam yoki '_' bo‘lishi kerak (3-16 ta belgi)";
     }
     return "";
   };
