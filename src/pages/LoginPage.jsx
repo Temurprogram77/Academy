@@ -61,68 +61,68 @@ const LoginPage = () => {
       <div className="h-screen flex items-center justify-center sm:mx-auto mx-4">
         <div className="btn-gradient w-full max-w-sm p-1 rounded-xl">
           <div className="bg-white shadow-lg rounded-xl p-6 w-full flex flex-col">
-          <h2 className="text-2xl font-semibold text-center mb-4">Login</h2>
+            <h2 className="text-2xl font-semibold text-center mb-4">Login</h2>
 
-          {/* Username */}
-          <input
-            type="text"
-            placeholder="Username"
-            value={username}
-            onChange={(e) => {
-              const val = e.target.value;
-              setUsername(val);
-              setUsernameError(validateUsername(val)); // har yozishda tekshiradi
-              setTouched((prev) => ({ ...prev, username: true })); // yozilganda touched = true
-            }}
-            className={`border-2 outline-none px-4 py-3 my-2 rounded-lg ${
-              usernameError && touched.username
-                ? "border-[#F97316]"
-                : "border-[#D1D5DB] focus:ring-[#208a00]"
-            }`}
-          />
-          {usernameError && touched.username && (
-            <p className="text-[#F97316] text-sm mb-1">{usernameError}</p>
-          )}
-
-          {/* Phone */}
-          <PhoneInput
-            value={phone}
-            onChange={(val) => {
-              setPhone(val);
-              setPhoneError(validatePhone(val)); // har yozishda tekshiradi
-              setTouched((prev) => ({ ...prev, phone: true })); // yozilganda touched = true
-            }}
-            onFocus={() => {
-              if (!phone) {
-                setPhone("+998");
-              }
-            }}
-            placeholder="+998 99-999-99-99"
-            inputProps={{
-              name: "phone",
-              required: true,
-              className: `border-2 outline-none w-full px-4 py-3 my-2 rounded-lg ${
-                phoneError && touched.phone
+            {/* Username */}
+            <input
+              type="text"
+              placeholder="Username"
+              value={username}
+              onChange={(e) => {
+                const val = e.target.value;
+                setUsername(val);
+                setUsernameError(validateUsername(val)); // har yozishda tekshiradi
+                setTouched((prev) => ({ ...prev, username: true })); // yozilganda touched = true
+              }}
+              className={`border-2 outline-none px-4 py-3 my-2 rounded-lg ${
+                usernameError && touched.username
                   ? "border-[#F97316]"
                   : "border-[#D1D5DB] focus:ring-[#208a00]"
-              }`,
-            }}
-          />
+              }`}
+            />
+            {usernameError && touched.username && (
+              <p className="text-[#F97316] text-sm mb-1">{usernameError}</p>
+            )}
 
-          {phoneError && touched.phone && (
-            <p className="text-[#F97316] text-sm">{phoneError}</p>
-          )}
+            {/* Phone */}
+            <PhoneInput
+              value={phone}
+              onChange={(val) => {
+                setPhone(val);
+                setPhoneError(validatePhone(val)); // har yozishda tekshiradi
+                setTouched((prev) => ({ ...prev, phone: true })); // yozilganda touched = true
+              }}
+              onFocus={() => {
+                if (!phone) {
+                  setPhone("+998");
+                }
+              }}
+              placeholder="+998 99-999-99-99"
+              inputProps={{
+                name: "phone",
+                required: true,
+                className: `border-2 outline-none w-full px-4 py-3 my-2 rounded-lg ${
+                  phoneError && touched.phone
+                    ? "border-[#F97316]"
+                    : "border-[#D1D5DB] focus:ring-[#208a00]"
+                }`,
+              }}
+            />
 
-          {/* Button */}
-          <button
-            onClick={handleContinue}
-            className={`w-full mt-5 text-white py-2 rounded-lg font-semibold transition cursor-pointer
+            {phoneError && touched.phone && (
+              <p className="text-[#F97316] text-sm">{phoneError}</p>
+            )}
+
+            {/* Button */}
+            <button
+              onClick={handleContinue}
+              className={`w-full mt-5 text-white py-2 rounded-lg font-semibold transition cursor-pointer
                 bg-gradient-to-r from-green-400 to-green-600 hover:from-green-500 hover:to-green-700
             `}
-          >
-            Continue
-          </button>
-        </div>
+            >
+              Continue
+            </button>
+          </div>
         </div>
       </div>
     </div>
