@@ -76,12 +76,12 @@ const LoginPage = () => {
             }}
             className={`border-2 outline-none px-4 py-3 my-2 rounded-lg ${
               usernameError && touched.username
-                ? "border-[#00000073]"
+                ? "border-[#F97316]"
                 : "border-[#D1D5DB] focus:ring-[#208a00]"
             }`}
           />
           {usernameError && touched.username && (
-            <p className="text-[#000] text-sm mb-1">{usernameError}</p>
+            <p className="text-[#F97316] text-sm mb-1">{usernameError}</p>
           )}
 
           {/* Phone */}
@@ -103,14 +103,14 @@ const LoginPage = () => {
               required: true,
               className: `border-2 outline-none w-full px-4 py-3 my-2 rounded-lg ${
                 phoneError && touched.phone
-                  ? "border-[#00000073]"
+                  ? "border-[#F97316]"
                   : "border-[#D1D5DB] focus:ring-[#208a00]"
               }`,
             }}
           />
 
           {phoneError && touched.phone && (
-            <p className="text-[#000] text-sm">{phoneError}</p>
+            <p className="text-[#F97316] text-sm">{phoneError}</p>
           )}
 
           {/* Button */}
